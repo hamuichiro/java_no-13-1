@@ -1,12 +1,9 @@
-<%@ page contentType="text/html; charset=UTF-8" import="java.net.URLEncoder, java.net.URLDecoder" %>
+<%@ page contentType="text/html; charset=UTF-8" import="java.net.URLDecoder" %>
 <%
 String logout = request.getParameter("key");
-
 if (logout != null && logout.equals("logout")) {
-   	session.setAttribute("address", "");
+   	session.removeAttribute("address");
 }
-
-
 String address = (String)session.getAttribute("address");
 if (address == null) {
     address = "";
@@ -26,6 +23,6 @@ else {
 Email:<input type="text" name="address" size="40" value="<%= address %>">
 <input type="submit" value="送信">
 </form>
-<a href="registerEmail.jsp?key=<%= URLEncoder.encode("logout", "UTF-8")%>">ログアウト</a>
+<a href="registerEmail.jsp?key=logout">ログアウト</a>
 </body>
 </html>
