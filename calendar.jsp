@@ -55,9 +55,6 @@ if (event == null) {
 request.setAttribute("event", event);
 %>
 
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
