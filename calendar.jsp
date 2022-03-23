@@ -9,7 +9,6 @@ String day = request.getParameter("day");
 String month = request.getParameter("month");
 String year = request.getParameter("year");
 String dateNow = "";
-
 if (day == null || month == null || year == null) { 
 	Date now = new Date();
 	SimpleDateFormat dateForm = new SimpleDateFormat("yyyy/MM/dd");
