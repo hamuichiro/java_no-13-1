@@ -74,7 +74,6 @@ request.setAttribute("event", event);
         <input type="text" name="month" size="3">月
         <input type="text" name="day" size="3">日
         <input type="submit" value="送信">
-   </form>
-        
+   </form>  
 </body>  
 </html>    
