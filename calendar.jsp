@@ -5,11 +5,13 @@
 <fmt:setLocale value="ja_JP"/>
 <%
 request.setCharacterEncoding("UTF-8");
-String day = request.getParameter("day");
-String month = request.getParameter("month");
 String year = request.getParameter("year");
+String month = request.getParameter("month");
+String day = request.getParameter("day");
+
+
 String dateNow = "";
-if (day == null || month == null || year == null) { 
+if (year == null || month == null || day == null) { 
 	Date now = new Date();
 	SimpleDateFormat dateForm = new SimpleDateFormat("yyyy/MM/dd");
 	dateNow = dateForm.format(now);
@@ -17,9 +19,9 @@ if (day == null || month == null || year == null) {
 	request.setAttribute("dates", dates);
 }
 else {
-	day = day.format("%2s", day).replace(" ", "0");
-	month = month.format("%2s", month).replace(" ", "0");
 	year = year.format("%4s", year).replace(" ", "0");
+	month = month.format("%2s", month).replace(" ", "0");
+	day = day.format("%2s", day).replace(" ", "0");	
 	dateNow = year + "/" + month + "/" + day;
 	String[] dates = {year, month, day};
 	request.setAttribute("dates", dates);
@@ -63,16 +65,16 @@ request.setAttribute("event", event);
 </head>
 <body>
   <div>
-	<fmt:parseDate value="${dateNow}" var="date" type="DATE"/>
+	<!--<fmt:parseDate value="${dateNow}" var="date" type="DATE"/>-->
    	<fmt:formatDate value="${date}" var="today" type="DATE" pattern="（E）"/>
    	<c:out value="${fn:join(dates, '/')}"/>
    	<c:out value="${today}"/>
 	<c:out value="${event}"/>
   </div>  
   <form Method="POST" action="calendar.jsp">
-        <input type="text" name="year" size="3">年
-        <input type="text" name="month" size="3">月
-        <input type="text" name="day" size="3">日
+        <input type="text" name="year" size=3>年
+        <input type="text" name="month" size=3>月
+        <input type="text" name="day" size=3>日
         <input type="submit" value="送信">
    </form>  
 </body>  
