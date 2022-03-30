@@ -65,7 +65,6 @@ request.setAttribute("event", event);
 </head>
 <body>
   <div>
-	<!--<fmt:parseDate value="${dateNow}" var="date" type="DATE"/>-->
    	<fmt:formatDate value="${date}" var="today" type="DATE" pattern="（E）"/>
    	<c:out value="${fn:join(dates, '/')}"/>
    	<c:out value="${today}"/>
